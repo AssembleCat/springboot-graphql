@@ -6,6 +6,9 @@ spring:
   graphql:
     graphiql:
       enabled: true # localhost:8080/graphiql
+      schema:
+        locations: classpath:graphql/**/
+        fileExtensions: .graphqls, .gqls
       printer:
         enabled: true
 
