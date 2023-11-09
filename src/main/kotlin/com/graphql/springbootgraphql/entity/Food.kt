@@ -11,6 +11,13 @@ class Food(
 
     var name: String
 ) {
+    fun update(name: String?): Food {
+        apply {
+            this.name = name ?: this.name
+        }
+
+        return this
+    }
     companion object {
         fun from(name: String) = Food(null, name)
     }

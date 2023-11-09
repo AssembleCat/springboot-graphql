@@ -19,6 +19,11 @@ class FoodController(
         return foodService.save(name)
     }
 
+    @MutationMapping
+    fun update(@Argument id: Long, @Argument name: String): Food {
+        return foodService.update(id, name)
+    }
+
     @QueryMapping
     fun getFood(@Argument name: String): Food {
         return foodService.getFood(name)

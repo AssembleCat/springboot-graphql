@@ -18,8 +18,14 @@ class FoodService(
         return foodRepository.save(Food.from(name))
     }
 
+    fun update(id: Long, name: String): Food {
+        val food = foodRepository.findById(id)
+            .orElseThrow { throw EntityNotFoundException("No food to update") }
+        return foodRepository.save(food.update(name))
+    }
+
     fun getFood(name: String): Food {
-        return foodRepository.findByName(name) ?: throw EntityNotFoundException("No food")
+        return foodRepository.findByName(name) ?: throw EntityNotFoundException("No food to query")
     }
 
     fun getFoods(): List<Food> {
